@@ -1,39 +1,44 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 // import restaurantList from "../Utils/mockData";
 import RestaurantCard from "./ResturantCard";
 // import { useEffect } from "react";
 import restaurantList from "../Utils/mockData";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
   // console.log("prakhar");
 
-  const [resList, setResList] = useState(restaurantList)
+  const [resList, setResList] = useState([])
   const [searchText, setSearcText] = useState("")
-  const [filterRes ,setFilterRes] = useState([])
-  // useEffect(() => {
-    // fetchData()
-  // }, [])
+  const [filteredRes ,setFilterRes] = useState([])
 
+  useEffect(() => {
+    fetchData();
+  },[])
+
+    // if (resList.length === 0) {
+    //   return <h1>Loading....</h1>
+    // }
+  
+  const fetchData = async () => {
+    const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.87989326840672&lng=80.99263317883016&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    );
+
+    const json = await data.json();
+    setResList(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants); 
+    setFilterRes(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     if (resList.length === 0) {
       return <h1>Loading....</h1>
     }
-  
-  // const fetchData = async () => {
-  //   const data = await fetch("https://corsproxy.org/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.87989326840672&lng=80.99263317883016&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-  //   );
-
-  //   const json = await data.json();
 
     // console.log(json?.data?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-    // setResList(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+    // const Data =json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+                  // setResList()
     // setFilterRes(json.data.cards[5].card.card.gridElements.infoWithStyle.restaurants)
-
-
-  //   if (resList.length === 0) {
-  //     return <h1>Loading....</h1>
-  //   }
-  // }
-  return (
+    // console.log(data);
+   
+  }
+  return resList.length === 0 ? (<Shimmer />) : (
     <div className="body">
       <div className="search">
         <div >
@@ -42,27 +47,27 @@ const Body = () => {
           setSearcText(e.target.value)}/>
           <button onClick={()=>
           {
-           const filteredResturant= resList.filter((res)=>
-           res.data.name.toLowerCase().includes(searchText.toLowerCase()))
-           setResList(filteredResturant)
-
+           const filteredRestaurant= resList.filter((res)=>
+           res.info.name.toLowerCase().includes(searchText.toLowerCase()))
+        
+           setFilterRes(filteredRestaurant)
           }}>Search</button>
 
         
         </div>
         
         <button onClick={() => {
-          const filterlist = resList.filter((res) => res.data.avgRating > 4)
+          const filterlist = resList.filter((res) => res.info.avgRating > 4.2)
           console.log(filterlist);
-          setResList(filterlist)
-
+          setResList(filteredRes)
+         
         }}>Top Rated Restuarant</button>
       </div>
       <div className="res-container ">
         {
-          resList.map((restaurant) => (
-            <RestaurantCard key={restaurant.data.id} resData={restaurant} />
-          ))
+          filteredRes.map((restaurant) => (
+            <RestaurantCard key={restaurant?.info?.id} resData={restaurant} />
+          )) 
         }
         {/* <RestaurantCard resData= {restaurantList[0]}/>
       <RestaurantCard resData= {restaurantList[1]}/> */}

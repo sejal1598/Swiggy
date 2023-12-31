@@ -7,21 +7,25 @@ import { Link } from "react-router-dom";
   
   const [btnName,setBtnName]=useState("Login")
 
+  useEffect(()=>{
+    console.log("Sejal Singh")
+  }, [])
+
  
   return(
     <div className="header">
      <div className="logo-container">
       <img className='logo' src={CDN_LOGO}alt="Logo" />
-      
+       
       </div>
       <div className="nav-items">
         <ul>
-          <li> <a href="/home">Home</a></li>
-          <li><a href="/about">About Us</a></li>
-          <li>
-            <a href="/contact">Contact Us</a>
+          <li> <Link to="/home"> Home</Link></li>
+          <li> <Link to="/about"> About Us </Link></li>
+          <li><Link to="contact">
+            Contact Us</Link>
             </li>
-          <li>Cart</li>
+          <li><Link to = "cart">Cart</Link></li>
           <button className="login" 
           onClick={()=>
             {

@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Fixed Navbar and Sidebar</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .navbar {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1;
+    }
+
+    .sidebar {
+      position: fixed;
+      width: 250px;
+      height: 100%;
+      background-color: #3E444E; /* Primary color 1 */
+      color: #fff;
+      overflow-y: auto; /* Enable vertical scrolling */
+      top: 40px; /* Adjust for navbar height */
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    ul li a {
+      display: block;
+      padding: 10px 15px;
+      text-decoration: none;
+      color: #fff;
+      transition: background-color 0.3s ease;
+    }
+
+    ul li a:hover {
+      background-color: #545D68; /* Primary color 2 on hover */
+    }
+
+    ul li:hover .submenu {
+      display: block;
+
+      
+    }
+  ul li:hover.img{
+  
+   transform:rotate(90deg);
+   }
+    .submenu {
+      display: none;
+      background-color: #6C7480; /* Submenu background color */
+    }
+
+    .submenu li {
+      background-color: #545D68; /* Primary color 2 for submenu items */
+    }
+
+    .submenu li:hover {
+      background-color: #7E8894; /* Lighter shade on submenu item hover */
+    }
+
+    .submenu a {
+      color: #fff; /* Text color for submenu items */
+    }
+
+    .content {
+      margin-left: 250px; /* Adjust content margin to accommodate fixed sidebar */
+      padding: 20px;
+      padding-top: 60px; /* Adjust for navbar height */
+    }
+
+    /* Adjust this class to the element you want to keep scrolling */
+    .scrollable-content {
+      height: 2000px; /* Sample content height for demonstration */
+      background-color: #f2f2f2;
+      padding: 20px;
+    }
+    .abc{
+        white-space:nowrap;
+    width:100px;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    border:1px,solid,black;
+    }
+
+    .dfe{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+ ul li :hover .imgrotate{
+    transform: rotate(90deg);
+
+ }
+   
+    
+  </style>
+</head>
+
+<body>
+  <div class="navbar">
+    <p>Navbar Content</p>
+    <!-- Add your navbar content here -->
+  </div>
+
+  <div class="sidebar">
+    <ul id="menu">
+      <li style="padding: 10px;"></li>
+      <li >
+        <a  href="#" class="dfe" ><p class=abc title = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eleifend felis at nisl gravida, ac co1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eleifend felis at nisl gravida, ac co1</p><img class="imgrotate" src="../src/Capturehhh.JPG"/>
+        <ul class="submenu">
+          <li><a href="#">Submenu 1-1</a></li>
+          <li><a href="#">Submenu 1-2</a></li>
+          <li>
+            <a href="#">Submenu 1-3</a>
+            <ul class="sub-submenu">
+              <li><a href="#">Sub-submenu 1-3-1</a></li>
+              <li><a href="#">Sub-submenu 1-3-2</a></li>
+              <li><a href="#">Sub-submenu 1-3-3</a></li>
+
+
+
+              
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Dropdown 2</a>
+        <ul class="submenu">
+          <li><a href="#">Submenu 2-1</a></li>
+          <li><a href="#">Submenu 2-2</a></li>
+        </ul>
+      </li>
+      <!-- Add more dropdowns here -->
+    </ul>
+  </div>
+
+  <div class="content">
+    <div class="scrollable-content">
+      <h1>Main Content</h1>
+      <!-- Your main content goes here -->
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eleifend felis at nisl gravida, ac commodo lorem hendrerit. Donec vel posuere risus. Nulla facilisi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. </p>
+      <!-- Add more content to demonstrate scrolling -->
+    </div>
+  </div>
+</body>
+
+</html>
+sidebarfinal;lll.txt
+Displaying sidebarfinal;lll.txt.

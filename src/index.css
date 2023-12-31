@@ -43,3 +43,16 @@ margin: 5px;
 .img-width{
   width: 200px;
 }
+.shimmer-card
+{
+  
+    margin: 20px;
+    width: 200px;
+    height: 400px;
+    background-color: lightgrey;
+  }
+ 
+
+  .shimmer-container{
+    display: flex;
+  }

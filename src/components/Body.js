@@ -27,9 +27,7 @@ const Body = () => {
     const json = await data.json();
     setResList(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants); 
     setFilterRes(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-    if (resList.length === 0) {
-      return <h1>Loading....</h1>
-    }
+  
 
     // console.log(json?.data?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     // const Data =json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
@@ -63,7 +61,7 @@ const Body = () => {
          
         }}>Top Rated Restuarant</button>
       </div>
-      <div className="res-container ">
+      <div className="res-container">
         {
           filteredRes.map((restaurant) => (
             <RestaurantCard key={restaurant?.info?.id} resData={restaurant} />

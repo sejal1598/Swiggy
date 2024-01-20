@@ -12,11 +12,11 @@ export const RestaurantMenu = () => {
     fetchMenu();
   }, [])
   const fetchMenu = async () => {
-    const data = await fetch(MENU_PAGE + resId );
+    const data = await fetch(`${MENU_PAGE}${resId}`);
     const json = await data.json()
     setResMunu(json?.data)
     // console.log(json.data);
-    // console.log(json?.data?.cards[0]?.card?.card?.info?.name);
+    console.log(json?.data?.cards[0]?.card?.card?.info?.name);
   }
 
   // console.log(resMenu);
@@ -26,11 +26,11 @@ export const RestaurantMenu = () => {
     return <Shimmer/>
   }
 
-  const {name,cuisines,costForTwoMessage}=resMenu?.cards[0]?.card?.card?.info 
+  const {name,cuisines,costForTwoMessage}=resMenu?.cards[0]?.card?.card?.info
 const{itemCards}=resMenu?.cards[2].groupedCard.cardGroupMap.REGULAR.cards[1].card.card;
   return (
     <div className='menu'>
-     {/* { console.log("sejal")}; */}
+     { console.log("sejal")};
     <h1>{name}</h1>  
     <p>{cuisines.join(",")} - {costForTwoMessage}</p>                                    
       <h2>Menu</h2>

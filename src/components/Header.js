@@ -1,6 +1,7 @@
  import { useEffect, useState } from "react";
 import {CDN_LOGO} from "../Utils/constants.js"
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../Utils/useOnlineStatus.js";
 // import { Link } from "react-router-dom";
  const Header =()=>
 {
@@ -12,6 +13,7 @@ import { Link } from "react-router-dom";
   }, [])
 
  
+  const onlineStatus = useOnlineStatus()
   return(
     <div className="header">
      <div className="logo-container">
@@ -20,6 +22,8 @@ import { Link } from "react-router-dom";
       </div>
       <div className="nav-items">
         <ul>
+          <li>
+            onLine Status: {onlineStatus? "✅" :"🔴"}</li>
           <li> <Link to="/"> Home</Link></li>
           <li> <Link to="/about"> About Us </Link></li>
           <li><Link to="contact">

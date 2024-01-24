@@ -5,13 +5,17 @@ import RestaurantCard from "./ResturantCard";
 import restaurantList from "../Utils/mockData";
 import { Link } from "react-router-dom";
 import Shimmer from "./Shimmer";
+import useOnlineStatus from "../Utils/useOnlineStatus";
+
+
 
 const Body = () => {
-  console.log("prakhar");
+  
 
   const [resList, setResList] = useState([])
   const [searchText, setSearcText] = useState("")
   const [filteredRes ,setFilterRes] = useState([])
+  
 
   useEffect(() => {
     fetchData();
@@ -27,7 +31,9 @@ const Body = () => {
 
     const json = await data.json();
     setResList(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants); 
-    setFilterRes(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+    setFilterRes(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+
+    
   
 
     // console.log(json?.data?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
@@ -36,6 +42,15 @@ const Body = () => {
     // setFilterRes(json.data.cards[5].card.card.gridElements.infoWithStyle.restaurants)
     // console.log(data);
    
+  };
+
+  const onlineStatus = useOnlineStatus();
+  
+  if (onlineStatus === false)
+  {
+    return(
+      <h1>You are offline !! please check your internet connection</h1>
+    )
   }
   return resList.length === 0 ? (<Shimmer />) : (
     <div className="body">

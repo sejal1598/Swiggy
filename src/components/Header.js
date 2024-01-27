@@ -1,8 +1,10 @@
- import { useEffect, useState } from "react";
+ import { lazy, useEffect, useState } from "react";
 import {CDN_LOGO} from "../Utils/constants.js"
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../Utils/useOnlineStatus.js";
 // import { Link } from "react-router-dom";
+
+// const Grocery = lazy(()=>import("./components/Grocery"))
  const Header =()=>
 {
   
@@ -15,7 +17,7 @@ import useOnlineStatus from "../Utils/useOnlineStatus.js";
  
   const onlineStatus = useOnlineStatus()
   return(
-    <div className="header">
+    <div className="header header-color">
      <div className="logo-container">
       <img className='logo' src={CDN_LOGO}alt="Logo" />
        
@@ -28,6 +30,9 @@ import useOnlineStatus from "../Utils/useOnlineStatus.js";
           <li> <Link to="/about"> About Us </Link></li>
           <li><Link to="contact">
             Contact Us</Link>
+            </li>
+            <li><Link to="grocery">
+           Grocery</Link>
             </li>
           <li><Link to = "cart">Cart</Link></li>
           <button className="login" 

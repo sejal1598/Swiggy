@@ -54,12 +54,12 @@ const Body = () => {
   }
   return resList.length === 0 ? (<Shimmer />) : (
     <div className="body">
-      <div className="search">
+      <div className="search ">
         <div >
-          <input type="
+          <input className="p-5" type="
         text" value={searchText} onChange={(e)=>
           setSearcText(e.target.value)}/>
-          <button onClick={()=>
+          <button className="btn-search" onClick={()=>
           {
            const filteredRestaurant= resList.filter((res)=>
            res.info.name.toLowerCase().includes(searchText.toLowerCase()))
@@ -70,7 +70,7 @@ const Body = () => {
         
         </div>
         
-        <button onClick={() => {
+        <button className= "btn-top-rated" onClick={() => {
           const filterlist = resList.filter((res) => res.info.avgRating > 4.2)
           console.log(filterlist);
           setResList(filteredRes)

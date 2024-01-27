@@ -90,3 +90,12 @@ margin: 5px;
 .header-color{
   background-color: lightblue;
 }
+.isopen-res{
+  position: absolute;
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  margin: 2px;
+  padding: 2px;
+  border-radius: 5px;
+}

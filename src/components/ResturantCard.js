@@ -20,4 +20,15 @@ const   RestaurantCard =({resData})=>
     </div>
   )
 }
+
+export const ResturantWithOpen = ((RestaurantCard)=>{
+  return((props)=>{
+    return(
+      <div>
+        <label className="isopen-res">isOpen</label>
+        <RestaurantCard {...props}/>
+      </div>
+    )
+  })
+})
 export default RestaurantCard

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 // import restaurantList from "../Utils/mockData";
-import RestaurantCard from "./ResturantCard";
+import RestaurantCard ,{ResturantWithOpen} from "./ResturantCard";
 // import { useEffect } from "react";
 import restaurantList from "../Utils/mockData";
 import { Link } from "react-router-dom";
@@ -16,6 +16,7 @@ const Body = () => {
   const [searchText, setSearcText] = useState("")
   const [filteredRes ,setFilterRes] = useState([])
   
+  console.log("kkkkk",resList);
 
   useEffect(() => {
     fetchData();
@@ -24,7 +25,7 @@ const Body = () => {
     // if (resList.length === 0) {
     //   return <h1>Loading....</h1>
     // }
-  
+  const RestuarantwithOpen= ResturantWithOpen(RestaurantCard)
   const fetchData = async () => {
     const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.87989326840672&lng=80.99263317883016&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
@@ -81,7 +82,8 @@ const Body = () => {
         {
           filteredRes.map((restaurant) => (
             <Link key={restaurant?.info?.id} to={"/restaurants/" + restaurant?.info?.id}>
-              <RestaurantCard resData={restaurant} />
+              {restaurant?.info?.isOpen?<RestuarantwithOpen resData={restaurant}/>: <RestaurantCard resData={restaurant} />}
+             
             </Link>
           ))
          

@@ -16,6 +16,7 @@ const Body = () => {
   const [searchText, setSearcText] = useState("")
   const [filteredRes ,setFilterRes] = useState([])
   
+  
   console.log("kkkkk",resList);
 
   useEffect(() => {

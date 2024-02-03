@@ -1,21 +1,21 @@
- import { lazy, useEffect, useState } from "react";
+ import { lazy, useEffect, useState, useContext } from "react";
 import {CDN_LOGO} from "../Utils/constants.js"
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../Utils/useOnlineStatus.js";
+import userContext from "../Utils/UserContext.js";
 // import { Link } from "react-router-dom";
 
 // const Grocery = lazy(()=>import("./components/Grocery"))
  const Header =()=>
 {
-  
+  ;
   const [btnName,setBtnName]=useState("Login")
 
-  useEffect(()=>{
-    console.log("Sejal Singh")
-  }, [])
-
- 
   const onlineStatus = useOnlineStatus()
+
+  const {loggedInUser} = useContext(userContext)
+
+console.log(loggedInUser)
   return(
     <div className="header header-color">
      <div className="logo-container">
@@ -35,13 +35,16 @@ import useOnlineStatus from "../Utils/useOnlineStatus.js";
            Grocery</Link>
             </li>
           <li><Link to = "cart">Cart</Link></li>
-          <button className="login" 
+          <button className="login"
+           
           onClick={()=>
             {
            btnName === "Login"? 
            setBtnName("logout"):
            setBtnName("Login")
           }}>{btnName}</button>
+          <li>{loggedInUser}</li>
+        
         </ul>
 
       </div>

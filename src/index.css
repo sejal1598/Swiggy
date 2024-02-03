@@ -99,3 +99,82 @@ margin: 5px;
   padding: 2px;
   border-radius: 5px;
 }
+.menu{
+  text-align: center;
+}
+.cuisen{
+  font-weight: bold;
+}
+.accordian{
+
+/* margin: 5px; */
+padding: 7px;
+font-weight: bold;
+font-size: large;
+width: 50%;
+background-color: rgb(230, 222, 222);
+margin: auto;
+margin-bottom: 10px;
+
+}
+.accordian-title{
+  display: flex;
+  justify-content: space-between;
+}
+.accordian-container
+{
+  /* width: 50%;
+  background-color: rgb(230, 222, 222); */
+  /* box-sha
+  padding: 8px;
+  /* margin: 10px; */
+  /* margin: auto;
+  margin-bottom: 10px; */
+}
+.item-list{
+  margin: 2px;
+  
+ 
+  padding: 5px;
+  font-weight: 200;
+  text-align: left;
+  padding: 5px;
+
+  
+}
+.description{
+  font-size: x-small;
+  font-weight: 100;
+}
+.item-list-span{
+  padding: 5px;
+}
+.itemcard{
+  border-bottom: 1px solid rgb(211, 210, 210);
+  display: flex;
+  justify-content: space-between;
+}
+.img-width1{
+  width: 200px;
+}
+.img-width{
+  width: 100px;
+}
+.list-btn{
+  padding: 5px;
+  background-color: black;
+  color: white;
+  position: absolute;
+  margin: 0px 2px 0px 2px;
+  border-radius: 5px;
+}
+.btn-container{
+
+}
+.login{
+  border: none;
+    background: lightblue;
+    font-weight: bold;
+    font-size: large;
+
+}
